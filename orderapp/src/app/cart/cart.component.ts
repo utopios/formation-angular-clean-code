@@ -32,4 +32,20 @@ export class CartComponent {
     console.log('Passer à la caisse avec les produits :', this.cartItems);
     // Rediriger vers la page de paiement ou autre logique
   }
+
+
+  //Exemple pour refactor
+  calculateTotal(price: number, quantity: number): number {
+    // let t = price * quantity;
+    // if (quantity > 100) {
+    //   t = t * 0.9;
+    // }
+    // return t;
+    const total = price * quantity;
+    return this.applyDiscountIfNeeded(total, quantity);
+  }
+  applyDiscountIfNeeded(total: number, quantity: number): number {
+    return quantity > 100 ? total * 0.9 : total;
+  }
+
 }
