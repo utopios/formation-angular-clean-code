@@ -1,1 +1,17 @@
-<p>customer works!</p>
+<div>
+    <h2>Customers</h2>
+    <ul>
+        <li *ngFor="let customer of customers">
+            {{ customer.name }} ({{ customer.email }})
+            <button (click)="deleteCustomer(customer.id)">Delete</button>
+        </li>
+    </ul>
+    <form (ngSubmit)="addCustomer()">
+        <input type="text" name="name" [(ngModel)]="newCustomer.name" placeholder="Name" required>
+        <input type="email" name="email" [(ngModel)]="newCustomer.email" placeholder="Email" required>
+        <button type="submit">Add Customer</button>
+    </form>
+    <div *ngIf="errorMessage" class="error">
+        {{ errorMessage }}
+    </div>
+</div>
