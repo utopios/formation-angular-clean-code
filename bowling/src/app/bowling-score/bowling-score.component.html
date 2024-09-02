@@ -1,0 +1,14 @@
+<div class="bowling-game">
+    <h2>Bowling Game</h2>
+    <p *ngFor="let player of players; let i = index">{{ player }}: {{ totals[i] }} points</p>
+  
+    <div *ngIf="!done">
+      <h4>{{ players[currP] }}'s Turn</h4>
+      <button (click)="roll()">Roll (Random)</button>
+    </div>
+  
+    <div *ngIf="done">
+      <h3>Game Over!</h3>
+      <button (click)="restart()">Restart Game</button>
+    </div>
+  </div>
