@@ -306,3 +306,10 @@ src/
 |  |  |  └── customer-feature.module.ts
 |  ├── app-routing.module.ts
 |  └── app.module.ts  
+
+
+### Utilisation des TDDs pour la construction d'une feature
+
+En tant qu'un utilisateur connecté, je peux ajouter des tasks
+
+- Test Unitaire pour la logique métier.
