@@ -1,1 +1,15 @@
-<p>product-form works!</p>
+<form (ngSubmit)="onSubmit()">
+    <label>
+      Name:
+      <input [(ngModel)]="product.name" name="name" required>
+    </label>
+    <label>
+      Price:
+      <input type="number" [(ngModel)]="product.price" name="price" required>
+    </label>
+    <label>
+      Stock:
+      <input type="number" [(ngModel)]="product.stock" name="stock" required>
+    </label>
+    <button type="submit">Submit</button>
+  </form>

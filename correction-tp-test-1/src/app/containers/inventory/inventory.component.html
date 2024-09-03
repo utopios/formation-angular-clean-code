@@ -1,1 +1,10 @@
-<p>inventory works!</p>
+<app-product-form
+  [product]="selectedProduct || { id: 0, name: '', price: 0, stock: 0 }"
+  (submitProduct)="onAddOrUpdateProduct($event)">
+</app-product-form>
+
+<app-product-list
+  [products]="products"
+  (editProduct)="onEditProduct($event)"
+  (deleteProduct)="onDeleteProduct($event)">
+</app-product-list>

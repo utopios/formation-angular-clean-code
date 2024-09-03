@@ -1,1 +1,7 @@
-<p>product-list works!</p>
+<ul>
+    <li *ngFor="let product of products">
+      {{ product.name }} - ${{ product.price }} - Stock: {{ product.stock }}
+      <button (click)="onEdit(product)">Edit</button>
+      <button (click)="onDelete(product.id)">Delete</button>
+    </li>
+  </ul>
