@@ -217,7 +217,7 @@ export class UserManagementComponent implements OnInit {
   }
 }
 ```
-Exemple Architecture
+Exemple Architectures
 
 src/
 ├── app/
@@ -238,3 +238,71 @@ src/
 |  |  ├── first-feature-routing.module.ts
 |  |  └── first-feature.module.ts
 |  ├── SecondFeature    
+        ├── components
+        ├── containers
+        ├── pages
+        ├── second-feature-routing.module.ts
+        └── second-feature.module.ts
+
+
+
+src/
+├── app/
+|  ├── core
+|  |  ├── interceptors
+|  |  |  └── auth.interceptor.ts
+|  |  ├── guards
+|  |  |  └── auth.guard.ts
+|  |  ├── services
+|  |  |  ├── http.service.ts
+|  |  |  └── shared-data.service.ts
+|  |  └── core.module.ts
+|  ├── shared
+|  |  ├── components
+|  |  |  └── loader.component.ts
+|  |  ├── directives
+|  |  |  └── autofocus.directive.ts
+|  |  ├── pipes
+|  |  |  └── capitalize.pipe.ts
+|  |  ├── modules
+|  |  |  └── material.module.ts
+|  |  └── shared.module.ts
+|  ├── features
+|  |  ├── order-feature
+|  |  |  ├── components
+|  |  |  |  └── order-list.component.ts
+|  |  |  ├── containers
+|  |  |  |  └── order-container.component.ts
+|  |  |  ├── pages
+|  |  |  |  └── order-page.component.ts
+|  |  |  ├── models
+|  |  |  |  └── order.model.ts
+|  |  |  ├── services
+|  |  |  |  └── order.service.ts
+|  |  |  └── order-feature.module.ts
+|  |  ├── product-feature
+|  |  |  ├── components
+|  |  |  |  └── product-list.component.ts
+|  |  |  ├── containers
+|  |  |  |  └── product-container.component.ts
+|  |  |  ├── pages
+|  |  |  |  └── product-page.component.ts
+|  |  |  ├── models
+|  |  |  |  └── product.model.ts
+|  |  |  ├── services
+|  |  |  |  └── product.service.ts
+|  |  |  └── product-feature.module.ts
+|  |  ├── customer-feature
+|  |  |  ├── components
+|  |  |  |  └── customer-list.component.ts
+|  |  |  ├── containers
+|  |  |  |  └── customer-container.component.ts
+|  |  |  ├── pages
+|  |  |  |  └── customer-page.component.ts
+|  |  |  ├── models
+|  |  |  |  └── customer.model.ts
+|  |  |  ├── services
+|  |  |  |  └── customer.service.ts
+|  |  |  └── customer-feature.module.ts
+|  ├── app-routing.module.ts
+|  └── app.module.ts  
