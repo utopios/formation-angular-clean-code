@@ -313,3 +313,8 @@ src/
 En tant qu'un utilisateur connecté, je peux ajouter des tasks
 
 - Test Unitaire pour la logique métier.
+
+## Ajouter eslint
+ng add @angular-eslint/schematics
+
+npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/template-parser

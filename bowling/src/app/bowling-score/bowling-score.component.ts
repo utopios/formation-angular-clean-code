@@ -31,9 +31,9 @@ export class BowlingScoreComponent {
       return; // Mauvaise pratique : retour prématuré
     }
 
-    var pins = Math.floor(Math.random() * 11); // Génère un nombre aléatoire entre 0 et 10
-    var playerFrames = this.frames[this.currP];
-    var frame = playerFrames[this.currF];
+    const pins = Math.floor(Math.random() * 11); // Génère un nombre aléatoire entre 0 et 10
+    const playerFrames = this.frames[this.currP];
+    let frame = playerFrames[this.currF];
 
     if (!frame) {
       frame = [];
@@ -52,10 +52,10 @@ export class BowlingScoreComponent {
   }
 
   calc() { // Fonction mal nommée
-    for (var i = 0; i < this.players.length; i++) {
+    for (let i = 0; i < this.players.length; i++) {
       this.totals[i] = 0; // Réinitialiser à chaque itération
-      var f = this.frames[i];
-      for (var j = 0; j < 10; j++) {
+      const f = this.frames[i];
+      for (let j = 0; j < 10; j++) {
         if (f[j] && f[j][0] === 10) { // Strike
           this.totals[i] += 10 + (f[j + 1] ? f[j + 1][0] || 0 : 0) + (f[j + 1] && f[j + 1][1] ? f[j + 1][1] || (f[j + 2] ? f[j + 2][0] || 0 : 0) : 0);
         } else if (f[j] && f[j][0] + f[j][1] === 10) { // Spare
