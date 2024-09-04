@@ -1,0 +1,13 @@
+<div>
+  <h2>Popular Movies</h2>
+  <ul *ngIf="movies.length > 0; else noMovies">
+    <li *ngFor="let movie of movies">
+      <a [routerLink]="['/movie', movie.id]">
+        <app-movie-item [movie]="movie"></app-movie-item>
+      </a>
+    </li>
+  </ul>
+  <ng-template #noMovies>
+    <p>{{ errorMessage || 'No movies available' }}</p>
+  </ng-template>
+</div>

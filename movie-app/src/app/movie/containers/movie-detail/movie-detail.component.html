@@ -1,0 +1,16 @@
+<div *ngIf="movie; else errorTemplate">
+    <h2>{{ movie.title }}</h2>
+    <p><strong>Overview:</strong> {{ movie.overview }}</p>
+    <p><strong>Release Date:</strong> {{ movie.releaseDate }}</p>
+    <p><strong>Genres:</strong> {{ movie.genres }}</p>
+    <p><strong>Director:</strong> {{ movie.director || 'Unknown' }}</p>
+    <ul>
+      <li *ngFor="let actor of movie.cast">
+        {{ actor.name }} as {{ actor.character }}
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #errorTemplate>
+    <p>{{ errorMessage || 'Movie details not available.' }}</p>
+  </ng-template>
