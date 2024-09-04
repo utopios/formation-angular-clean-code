@@ -1,33 +1,57 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { User } from '../models/user.model';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { HandleError } from '../../core/decorators/error.decorator';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
-  private apiUrl = '/api/users';
-
   constructor(private http: HttpClient) {}
 
-  register(user: any): Observable<User> {
-    return this.http.post<any>(`${this.apiUrl}/register`, user)
-      .pipe(
-        map(data => new User(data))
-      );
+  // Méthode pour l'inscription
+  register(userData: { name: string, email: string, password: string }): Observable<any> {
+    return this.http.post('/api/register', userData).pipe(
+      catchError(this.handleError)  // Ajout de la gestion des erreurs
+    );
   }
 
-  login(credentials: any): Observable<User> {
-    return this.http.post<any>(`${this.apiUrl}/login`, credentials)
-      .pipe(
-        map(data => new User(data))
-      );
+  // Méthode pour la connexion
+  login(userData: { email: string, password: string }): Observable<any> {
+    return this.http.post('/api/login', userData).pipe(
+      catchError(this.handleError)  // Ajout de la gestion des erreurs
+    );
   }
 
-  getProfile(): Observable<User> {
-    return this.http.get<any>(`${this.apiUrl}/profile`)
-      .pipe(
-        map(data => new User(data))
-      );
+  // Méthode pour la mise à jour du profil
+  @HandleError
+  updateProfile(userData: { name: string, email: string }): Observable<any> {
+    // return this.http.put('/api/profile', userData).pipe(
+    //   catchError(this.handleError)  // Ajout de la gestion des erreurs
+    // );
+    return this.http.put('/api/profile', userData)
+    
+  }
+
+  // Méthode pour gérer les erreurs
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'An unknown error occurred!';
+    if (error.error instanceof ErrorEvent) {
+      // Erreur côté client ou réseau
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // Erreur côté backend
+      if (error.status === 400) {
+        errorMessage = 'Bad request. Please check the input data.';
+      } else if (error.status === 401) {
+        errorMessage = 'Unauthorized. Invalid email or password.';
+      } else if (error.status === 409) {
+        errorMessage = 'Conflict. Email already exists.';
+      } else {
+        errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      }
+    }
+    return throwError(() => new Error(errorMessage));
   }
 }
