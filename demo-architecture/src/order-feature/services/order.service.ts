@@ -1,7 +1,7 @@
 // order.service.ts
 import { Injectable } from '@angular/core';
 import { HttpService } from '../../core/services/http.service';
-import { SharedDataService } from '../../core/services/shared-data.service';
+import { SharedDataService } from '../../shared/services/shared-data.service';
 import { Observable } from 'rxjs';
 
 import { tap } from 'rxjs/operators';

@@ -409,3 +409,53 @@ describe('FavoritesService', () => {
   });
 });
 ```
+
+
+### Structure du projet
+
+```
+src/
+├── app/
+│   ├── app.component.ts
+│   ├── app.module.ts
+│   ├── core/
+│   │   ├── interceptors/
+│   │   │   ├── logging.interceptor.ts
+│   │   │   ├── error.interceptor.ts
+│   │   ├── services/
+│   │   │   ├── auth.service.ts
+│   ├── movie/
+│   │   ├── movie.module.ts
+│   │   ├── services/
+│   │   │   ├── movie.service.ts
+│   │   ├── components/
+│   │   │   ├── movie-list.component.ts
+│   │   │   ├── movie-detail.component.ts
+│   │   ├── models/
+│   │   │   ├── movie.model.ts
+│   ├── user/
+│   │   ├── user.module.ts
+│   │   ├── services/
+│   │   │   ├── user.service.ts
+│   │   ├── components/
+│   │   │   ├── register.component.ts
+│   │   │   ├── login.component.ts
+│   │   │   ├── profile.component.ts
+│   │   ├── models/
+│   │   │   ├── user.model.ts
+│   ├── shared/
+│   │   ├── shared.module.ts
+│   │   ├── components/
+│   │   ├── services/
+│   └── assets/
+├── environments/
+├── tests/
+│   ├── movie.service.spec.ts
+│   ├── user.service.spec.ts
+│   ├── auth.service.spec.ts
+│   ├── register.component.spec.ts
+│   ├── login.component.spec.ts
+│   ├── movie-list.component.spec.ts
+│   ├── profile.component.spec.ts
+├── main.ts
+```

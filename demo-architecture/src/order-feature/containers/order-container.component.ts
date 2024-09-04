@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../services/order.service';
-import { SharedDataService } from '../../core/services/shared-data.service';
+import { SharedDataService } from '../../shared/services/shared-data.service';
 import { Observable } from 'rxjs';
 import { Order } from '../models/order.model';
 
