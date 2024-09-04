@@ -459,3 +459,56 @@ src/
 │   ├── profile.component.spec.ts
 ├── main.ts
 ```
+
+```
+src/
+├── app/
+│   ├── app.component.ts
+│   ├── app.module.ts
+│   ├── core/
+│   │   ├── interceptors/
+│   │   │   ├── logging.interceptor.ts
+│   │   │   ├── error.interceptor.ts
+│   │   ├── services/
+│   │   │   ├── auth.service.ts
+│   ├── movie/
+│   │   ├── movie.module.ts
+│   │   ├── containers/
+│   │   │   ├── movie-list/
+│   │   │   │   ├── movie-list.component.ts
+│   │   │   │   ├── movie-list.component.html
+│   │   │   │   ├── movie-list.component.css
+│   │   │   │   ├── movie-list.component.spec.ts
+│   │   │   ├── movie-detail/
+│   │   │   │   ├── movie-detail.component.ts
+│   │   │   │   ├── movie-detail.component.html
+│   │   │   │   ├── movie-detail.component.css
+│   │   │   │   ├── movie-detail.component.spec.ts
+│   │   ├── components/
+│   │   │   ├── movie-item/
+│   │   │   │   ├── movie-item.component.ts
+│   │   │   │   ├── movie-item.component.html
+│   │   │   │   ├── movie-item.component.css
+│   │   │   │   ├── movie-item.component.spec.ts
+│   ├── user/
+│   │   ├── user.module.ts
+│   │   ├── containers/
+│   │   │   ├── login/
+│   │   │   │   ├── login.component.ts
+│   │   │   │   ├── login.component.html
+│   │   │   │   ├── login.component.css
+│   │   │   │   ├── login.component.spec.ts
+│   │   │   ├── register/
+│   │   │   │   ├── register.component.ts
+│   │   │   │   ├── register.component.html
+│   │   │   │   ├── register.component.css
+│   │   │   │   ├── register.component.spec.ts
+│   │   ├── components/
+│   │   │   ├── user-profile/
+│   │   │   │   ├── user-profile.component.ts
+│   │   │   │   ├── user-profile.component.html
+│   │   │   │   ├── user-profile.component.css
+│   │   │   │   ├── user-profile.component.spec.ts
+├── assets/
+├── environments/
+```
