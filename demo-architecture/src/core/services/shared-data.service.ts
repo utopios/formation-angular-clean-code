@@ -4,6 +4,9 @@ import { Order } from '../../features/order-feature/models/order.model';
 import { Product } from '../../product-feature/models/product.model';
 import { Customer } from '../../customer-feature/models/customer.model';
 
+
+type state = "default" | "etat1" | "etat2"
+
 @Injectable({
   providedIn: 'root',
 })
@@ -12,6 +15,8 @@ export class SharedDataService {
   private productsSubject = new BehaviorSubject<Product[]>([]);
   private customersSubject = new BehaviorSubject<Customer[]>([]);
 
+  private stateSubject = new BehaviorSubject<state> ("default")
+
   // Orders
   get orders$(): Observable<Order[]> {
     return this.ordersSubject.asObservable();
@@ -19,6 +24,10 @@ export class SharedDataService {
 
   setOrders(orders: Order[]): void {
     this.ordersSubject.next(orders);
+  }
+
+  get state$(): Observable<state> {
+    return this.stateSubject.asObservable();
   }
 
   // Products
